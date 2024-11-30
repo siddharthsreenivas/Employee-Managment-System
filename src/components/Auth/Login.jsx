@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
-const Login = () => {
+const Login = ({handleLogin}) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    handleLogin(email,password)
 
-    setEmail('')
-    setPassword('')
+    // setEmail('')
+    // setPassword('')
     
   };
 
@@ -33,7 +33,7 @@ const Login = () => {
             <label htmlFor="username" className="block text-gray-300" >Password</label>
 
             <input
-              type="password" placeholder="*********" minLength='6' onChange={(e)=>setPassword(e.target.value)} value={password}
+              type="password" placeholder="*********" minLength='3' onChange={(e)=>setPassword(e.target.value)} value={password}
               className="block text-gray-300  mt-2 w-full placeholder-gray-500 rounded-lg border border-blue-500 bg-transparent px-5 py-2.5 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
 
           </div>
